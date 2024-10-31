@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist", // Укажите, куда будут компилироваться файлы
+    "baseUrl": "./src", // Базовый путь для абсолютных импортов
+    "paths": {
+      "@/*": ["*"] // Настройка для использования абсолютных импортов
+    }
+  },
+  "include": [
+    "src/**/*" // Включает все файлы в директории src
+  ],
+  "exclude": [
+    "node_modules", // Исключает node_modules
+    "**/*.spec.ts", // Исключает тестовые файлы
+    "**/*.test.tsx" // Исключает тестовые файлы
+  ]
+}
