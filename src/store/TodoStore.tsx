@@ -12,7 +12,7 @@ export class Todo {
     this.userId = userId;
     this.title = title;
     this.completed = completed;
-    makeAutoObservable(this); // Делаем каждое поле отслеживаемым
+    makeAutoObservable(this);
   }
 
   setTitle(newTitle: string) {
@@ -48,7 +48,12 @@ class TodoStore {
           ...this.todos,
           ...response.data.map(
             (todoData: Todo) =>
-              new Todo(todoData.id, todoData.userId, todoData.title, todoData.completed)
+              new Todo(
+                todoData.id,
+                todoData.userId,
+                todoData.title,
+                todoData.completed
+              )
           ),
         ];
         this.page += 1;
@@ -69,7 +74,7 @@ class TodoStore {
     const todo = this.todos.find((todo) => todo.id === id);
     if (todo) {
       runInAction(() => {
-        todo.setTitle(newTitle); // Используем метод setTitle для изменения заголовка
+        todo.setTitle(newTitle);
       });
     }
   };
@@ -78,7 +83,7 @@ class TodoStore {
     const todo = this.todos.find((todo) => todo.id === id);
     if (todo) {
       runInAction(() => {
-        todo.toggleCompletion(); // Используем метод toggleCompletion для изменения completed
+        todo.toggleCompletion();
       });
     }
   };
